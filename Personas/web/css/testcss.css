@@ -1,0 +1,32 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 26, 2020, 8:31:05 PM
+    Author     : Dinamo
+*/
+
+*{margin: 0; padding: 0;}
+        body{background: #ecf1f4; font-family: sans-serif;
+       
+        }
+        
+        .form-wrap{ 
+            width: 320px; 
+            background: #3e3d3d; 
+            padding: 50px 50px; 
+            box-sizing: initial; 
+            position: fixed;
+            left: 10%;
+            top: 10%; 
+            transform: translate(-50%, -50%);}
+        h1{text-align: center; color: #fff; font-weight: normal; margin-bottom: 20px;}
+        
+        input{width: 100%; background: none; border: 1px solid #202020; border-radius: 3px; padding: 6px 15px; box-sizing: border-box; margin-bottom: 20px; font-size: 16px; color: #202020;}
+        
+        input[type="button"]{ background: #bac675; border: 0; cursor: pointer; color: #202020 ;}
+        input[type="button"]:hover{ background: #a4b15c; transition: .6s;}
+        
+        ::placeholder{color: #202020;}
