@@ -1,4 +1,5 @@
 
+
 package DaysOfCode30;
 
 public interface Tree<D extends Comparable> {
