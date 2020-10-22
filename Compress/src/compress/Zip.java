@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Compress a .txt file containing  urls on each line into a .dat compressed file
  */
 package compress;
 
@@ -12,32 +10,38 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.zip.DeflaterOutputStream;
+import wikisort.MyMap;
 
 /**
- *
+ * Compress a .txt file containing  url`s on each line into a .dat compressed file
  * @author Dinamo
  */
 public class Zip {
-
-    public static void compress(String file1, String file2) {
+    /**
+     * Compress an array in to a .dat file
+     * @param array an array containing more urls
+     * @param file2 a compresed .dat file
+     */
+    public static void compress(MyMap[] array, String file2) {
         //Assign the original file : file to 
         //FileInputStream for reading data
-        FileInputStream fis = null;
         DeflaterOutputStream dos = null;
         try {
-            fis = new FileInputStream(file1);
             //Assign compressed file:file2 to FileOutputStream 
             FileOutputStream fos = new FileOutputStream(file2);
             //Assign FileOutputStream to DeflaterOutputStream 
             dos = new DeflaterOutputStream(fos);
-
             //read data from FileInputStream and write it into DeflaterOutputStream 
-            int data;
-            while ((data = fis.read()) != -1) {
-                dos.write(data);
+            String data;
+            int i = 0;
+            while (i < array.length) {
+                String curentUrl = array[i].url;
+                byte[] cuc = curentUrl.getBytes();
+                dos.write(cuc);
+                dos.write(42);
+                i++;
             }
             //close the file 
-            fis.close();
             dos.close();
         } catch (FileNotFoundException e) {
             Logger.getLogger(Zip.class.getName()).log(Level.SEVERE, null, e);
